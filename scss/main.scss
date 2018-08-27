@@ -51,7 +51,7 @@ body {
     margin: 0 auto;
     background-color: $color-primary;
     opacity: 0;
-    animation: moveUp 1s .5s forwards;
+    animation: moveUp 1s ease-out .5s forwards;
 }
 
 .logo__text-primary {
@@ -61,8 +61,7 @@ body {
     text-shadow: 2px 2px 20px black;
     opacity: 0;  
     transform-origin: bottom;
-    animation: test .5s 2s forwards;
-    
+    animation: test .5s ease-out 2s forwards;  
 }
 
 .logo__text-secondary {
@@ -71,15 +70,15 @@ body {
     margin-bottom: 10px;
     opacity: 0;
     transform-origin: bottom; 
-    animation: test .5s 1.5s forwards;
-    
+    animation: test .5s ease-out 1.5s forwards;    
 }
 
 .button {
-    color: white;
+    fill: white;
     width: 100px;
     height: 100px;
 }
+
 
 
 @keyframes moveUp {
@@ -97,7 +96,7 @@ body {
 @keyframes test {
     0% { transform: rotateX(-90deg);}
 
-    80% {transform: rotateX(30deg);}
+    80% {transform: rotateX(50deg);}
 
     100% {
         opacity: 1;
@@ -146,4 +145,4 @@ body {
         opacity: 1;
         transform: translateX(0%);
     }
-} */
+} 
