@@ -1,0 +1,163 @@
+
+
+$color-primary: #dd3b00;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    box-sizing: border-box;
+    background-color: #e9e5e5;
+    color: #eee;
+}
+
+.header {
+    background-image: linear-gradient(to right top, rgba(235, 233, 233, 0.212), rgba(0, 0, 0, 0.9)), url(../images/header5.jpg);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    perspective: 1000px;
+    
+}
+
+.logo::after {
+    content: " ";
+    display: block;
+    width: 40rem;
+    height: 4px;
+    margin: 0 auto;
+    background-color: $color-primary;
+    opacity: 0;
+    animation: moveUp 1s ease-in-out .5s forwards;
+
+}
+
+.logo__text--primary {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 5rem;
+    text-shadow: 2px 2px 2rem black;
+    opacity: 0;  
+    transform-origin: bottom;
+    animation: .5s ease-in-out 2s showFlip forwards;    
+}
+
+.logo__text--secondary {
+    color: #c5c5c5;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform-origin: bottom;   
+    animation: .5s ease-in-out 1.5s showFlip forwards;    
+}
+
+.button {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+    height: 3rem;
+    padding: 1.5rem;
+    border-radius: 50%;
+    opacity: 0;
+    border: 2px solid #e9e5e5;
+    transition: all .5s;
+    animation: 1.5s ease-in-out 1.5s moveDown forwards;
+}
+
+.button__icon-arrow {
+    width: 2rem;
+    height: 2rem;
+    fill: #e9e5e5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s;
+    animation: 1.5s ease-in-out 0s upAndDown alternate infinite;
+}
+
+.button:hover {
+    border: 2px solid #dd3b00;
+}
+
+.button:hover .button__icon-arrow {
+    fill: #dd3b00;
+}
+
+.button:hover + .button__text {
+    bottom: 19%;
+    opacity: 1;
+}
+
+.button__text {
+    position: absolute;
+    bottom: 21%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    opacity: 0;
+    transition: all .5s;
+}
+
+@keyframes moveUp {
+    0% { transform: translateY(-750px);}
+
+    80% {transform: translateY(20px);}
+
+    100% {
+         opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes showFlip {
+    0% { 
+        transform: rotateX(-90deg);
+    }
+
+    80% {
+        transform: rotateX(50deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+@keyframes upAndDown {
+    0% {transform: translateY(-5px) translate(-50%, -50%) ;}
+    100% {transform: translateY(5px) translate(-50%, -50%);}
+}
+
+@keyframes moveDown {
+    0% {
+        bottom: 40%;
+    }
+
+    100% {
+        bottom: 20%;
+        opacity: 1;
+    }
+}

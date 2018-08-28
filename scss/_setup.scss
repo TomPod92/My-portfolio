@@ -1,0 +1,30 @@
+:root {
+    --color-primary-light: #ee3f00;
+    --color-primary: #dd3b00;
+    --color-primar-dark: #cc3600;
+    --color-text: #eee;
+    --color-text-dark: #c5c5c5;
+    --color-background-white: #e9e5e5;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    box-sizing: border-box;
+    background-color: var(--color-background-white);
+    color: #eee;
+    overflow-x: hidden;
+}
