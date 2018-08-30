@@ -357,3 +357,100 @@ body {
     .project__button:hover + .project__button--text {
       bottom: 6%;
       opacity: 1; }
+
+.section-technologies {
+  min-height: 100vh;
+  width: 100vw; }
+
+.technologies__header {
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  letter-spacing: 4px;
+  text-align: center;
+  margin: 5rem 0 8rem 0; }
+  .technologies__header:after {
+    content: "";
+    display: block;
+    width: 25rem;
+    height: 4px;
+    margin: 0 auto;
+    background-color: var(--color-primary); }
+
+.technologies-row {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5rem 0;
+  display: flex;
+  justify-content: space-evenly; }
+  .technologies-row__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    z-index: 100;
+    position: relative; }
+    .technologies-row__item .icon-wrapper {
+      z-index: 100; }
+      .technologies-row__item .icon-wrapper:hover ~ .text-wrapper {
+        top: -15%;
+        opacity: 1; }
+      .technologies-row__item .icon-wrapper:hover ~ .stars-wrapper {
+        bottom: -15%;
+        opacity: 1; }
+    .technologies-row__item .text-wrapper {
+      text-transform: uppercase;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      z-index: 0;
+      transition: all .6s; }
+    .technologies-row__item .stars-wrapper {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      display: flex;
+      opacity: 0;
+      z-index: 0;
+      transition: all .6s; }
+      .technologies-row__item .stars-wrapper svg {
+        width: 2rem;
+        height: 2rem;
+        fill: var(--color-primary); }
+
+.technologies__item {
+  width: 100px;
+  height: 100px;
+  fill: var(--color-text-dark);
+  transition: all .6s; }
+  .technologies__item--html:hover {
+    fill: #E44E29; }
+  .technologies__item--css3:hover {
+    fill: #379AD6; }
+  .technologies__item--javascript:hover {
+    fill: #F8DC3D; }
+  .technologies__item--sass:hover {
+    fill: #CF6B9E; }
+  .technologies__item--rwd:hover {
+    fill: #5a5a5a; }
+  .technologies__item--git:hover {
+    fill: #F05033; }
+  .technologies__item--github:hover {
+    fill: #000; }
+  .technologies__item--npm:hover {
+    fill: #CC3534; }
+  .technologies__item--react:hover {
+    fill: #61DBFB; }
+  .technologies__item--php:hover {
+    fill: #8D90C5; }
+  .technologies__item--mysql:hover {
+    fill: #0077A2; }
+  .technologies__item--wordpress:hover {
+    fill: #21759B; }
+  .technologies__item--bootstrap:hover {
+    fill: #563D7C; }

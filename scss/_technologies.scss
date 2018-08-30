@@ -1,0 +1,110 @@
+.section-technologies {
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.technologies {
+    &__header {
+        font-size: 4rem;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        letter-spacing: 4px;
+        text-align: center;
+        margin: 5rem 0 8rem 0;
+
+        &:after {
+            content: "";
+            display: block;
+            width: 25rem;
+            height: 4px;
+            margin: 0 auto;
+            background-color: var(--color-primary);
+        }
+    }
+
+    &-row {
+        width: 80%;
+        margin: 0 auto;
+        padding: 5rem 0;
+        display: flex;
+        justify-content: space-evenly;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: black;
+            z-index: 100;
+            position: relative;
+
+            .icon-wrapper {
+                z-index: 100;
+
+                &:hover ~ .text-wrapper {
+                    top: -15%;
+                    opacity: 1;
+                    
+                }
+            
+                &:hover ~ .stars-wrapper {
+                    bottom: -15%;
+                    opacity: 1;
+                    
+                }
+            }
+
+            .text-wrapper {
+                text-transform: uppercase;
+                font-size: 2rem;
+                letter-spacing: 1px;
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                z-index: 0;
+                transition: all .6s;
+            }
+
+            .stars-wrapper {
+                position: absolute;
+                bottom: 20%;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                display: flex;
+                opacity: 0;
+                z-index: 0;
+                transition: all .6s;
+                svg {
+                    width: 2rem;
+                    height: 2rem;
+                    fill: var(--color-primary);
+                }
+            }
+            
+        }
+    }
+
+    &__item {
+        width: 100px;
+        height: 100px;
+        fill: var(--color-text-dark);
+        transition: all .6s;
+
+        &--html:hover {fill: #E44E29;}
+        &--css3:hover {fill: #379AD6;}
+        &--javascript:hover {fill: #F8DC3D;}
+        &--sass:hover {fill: #CF6B9E;}
+        &--rwd:hover {fill: #5a5a5a;}
+        &--git:hover {fill: #F05033;}
+        &--github:hover {fill: #000;}
+        &--npm:hover {fill: #CC3534;}
+        &--react:hover {fill: #61DBFB;}
+        &--php:hover {fill: #8D90C5;}
+        &--mysql:hover {fill: #0077A2;}
+        &--wordpress:hover {fill: #21759B;}
+        &--bootstrap:hover {fill: #563D7C;}
+    }
+   
+}
+//new!!!!!!!!!!!!!!!!!!!!!!!!!111
