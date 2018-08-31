@@ -1,0 +1,123 @@
+.section-contact {
+    min-height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to right top, rgba(235, 233, 233, 0.212), rgba(0, 0, 0, 0.9)),
+        url(../images/contact1.jpg);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.contact__header {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: var(--color-text);
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 2rem black;
+
+    &:after {
+        content: "";
+        display: block;
+        width: 25rem;
+        height: 4px;
+        margin: 0 auto;
+        background-color: var(--color-primary);
+    }
+}
+
+.bigBox {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    overflow: hidden;
+    border-radius: 5px;
+
+    &__left {
+        width: 50%;
+        height: 450px;
+        background-color: rgba(221, 59, 0, 0.7); 
+        transition: all .8s;
+        position: relative;  
+    }
+
+    &__right {
+        width: 50%;
+        height: 450px;
+        background-image: linear-gradient(to left top, rgba(255, 255, 255, 0.85), rgba(180, 180, 180, 0.85));
+        transition: width .8s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        position: relative;
+        color: black;
+    }
+
+    &__icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 3rem;
+        fill: var(--color-primary);
+        transition: all .4s;
+
+        &--show {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+            opacity: 0;
+            width: 50px;
+            height: 50px;
+            transition: all .6s;
+        }
+    }
+
+    p {
+        transition: all .4s;
+    }
+}
+
+.hover {
+    width: 90%;
+}
+
+.smaller {
+    width: 10%;
+
+    p,
+    .bigBox__icon {
+        opacity: 0;
+    }
+
+    .bigBox__icon--show {
+        opacity: 1;
+    }
+
+    form {
+        opacity: 0;
+    }
+}
+
+
+.message {
+    width: 80%;
+    height: 250px;
+    resize: none;
+    //background-color: var(--color-background-white);
+    background-image: linear-gradient(to right top, rgba(255, 255, 255, 0.85), rgba(180, 180, 180, 0.85));
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    transition: all .5s;
+}
