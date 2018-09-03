@@ -25,16 +25,35 @@
         margin-bottom: 3rem;
     }
 
-    &__image {
+    &__circle-image {
         width: 30rem;
         height: 30rem;
         float: left;
         shape-outside: circle(50% at 50% 50%);
         border-radius: 50%;
-        margin-right: 4rem; 
-        transform: skew(6deg); 
-        animation: showUp 2s;           
+        margin-right: 4rem;
+        position: relative;
+        perspective: 150rem;
+        z-index: 1000;
+
+        &--up,
+        &--down {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left:0;
+            backface-visibility: hidden;
+            transform: skew(6deg); 
+            transition: all 0.7s;
+        }
+
+        &--down {transform:skew(6deg) rotateY(-180deg);}
+
+        &:hover &--up {transform: skew(6deg) rotateY(-180deg);}
         
+        &:hover &--down {transform: skew(6deg) rotateY(0);}
     }
 
     &__text {

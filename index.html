@@ -13,6 +13,25 @@
 
 <body>
     <!-- -------------------------------------------------------------------------------------------------------- -->
+    <!-- ---------------------------------------------- NAVIGATION ---------------------------------------------- -->
+    <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="navigation-toggle">
+        <label for="navigation-toggle" class="navigation__button"><div class="navigation__icon">&nbsp</div></label>
+
+        <div class="navigation__background">&nbsp;</div>
+
+        <nav class="navigation__navigation">
+            <ul class="navigation__list">
+                <li class="navigation__item navigation__item--first"><a href="#" class="navigation__link">O mnie</a></li>
+                <li class="navigation__item navigation__item--second"><a href="#" class="navigation__link">Projekty</a></li>
+                <li class="navigation__item navigation__item--third"><a href="#" class="navigation__link">Technologie</a></li>
+                <li class="navigation__item navigation__item--fourth"><a href="#" class="navigation__link">Kontakt</a></li>   
+            </ul>
+        </nav>
+    </div>
+
+
+    <!-- -------------------------------------------------------------------------------------------------------- -->
     <!-- -------------------------------------------- HEADER SECTION -------------------------------------------- -->
     <header class="header">
         <div class="logo">
@@ -33,7 +52,10 @@
     <section class="section-about">
         <div class="about">
             <h2 class="about__header">Kim jestem?</h2>
-            <img src="images/head.jpg" alt="Tomek Podsiadlik" class="about__image">
+            <div class="about__circle-image">
+                <img src="images/head1.jpg" alt="Tomek Podsiadlik" class="about__circle-image--up">
+                <img src="images/head2.png" alt="Tomek Podsiadlik" class="about__circle-image--down">
+            </div>            
             <p class="about__text">Nazywam się Tomek Podsiadlik i jestem malarzem, modelarzem, biegaczem, cyklistą,
                 entuzjastą fantastyki/SF, a
                 od jakiegoś czasu staram się zostać również Front-end Developerem. Posiadam dyplom inżyniera, który
@@ -52,6 +74,7 @@
         </div>
 
     </section>
+
     <!-- -------------------------------------------------------------------------------------------------------- -->
     <!-- ------------------------------------------- PROJECT SECTION -------------------------------------------- -->
     <section class="section-projects">
@@ -294,19 +317,20 @@
 
         <h2 class="contact__header">Napisz do mnie</h2>
         <div class="bigBox">
+
             <div class="bigBox__left">
                 <form action="#" class="form">
-                    <textarea name="message" placeholder="twoja wiadomość" class="message"></textarea>
-                    <input type="file">
-                    <input type="submit" value="Wyślj">
+                    <textarea name="form" class="form__message"></textarea>
+                    <input type="email" placeholder="Email" class="form__email" required>
+                    <input type="file" class="form__upload">
+                    <input type="submit" value="Wyślj" class="form__sumbit">
                 </form>
 
                 <svg class="bigBox__icon--show">
                     <use xlink:href="images/sprite.svg#icon-envelop"></use>
                 </svg>
-                
+             </div>
 
-            </div>  
             <div class="bigBox__right">
                 <svg class="bigBox__icon">
                     <use xlink:href="images/sprite.svg#icon-envelop"></use>
@@ -317,7 +341,8 @@
                 <svg class="bigBox__icon--show">
                         <use xlink:href="images/sprite.svg#icon-envelop"></use>
                 </svg>
-            </div>  
+            </div>
+
         </div>
     </section>
 
