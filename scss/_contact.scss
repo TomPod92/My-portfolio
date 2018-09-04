@@ -10,6 +10,8 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    @include for-phone-up {clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);}
 }
 
 .contact__header {
@@ -19,6 +21,17 @@
     letter-spacing: 4px;
     text-shadow: 2px 2px 2rem black;
 
+    @include for-tablet-landscape-up {
+        font-size: 3.5rem;
+        margin-top: 5rem;
+    }
+
+    @include for-tablet-portrait-up {font-size: 3rem;}
+
+    @include for-phone-up {margin-top: 1.5rem;}
+
+    @include for-small-phone-only {font-size: 2.5rem;}
+
     &:after {
         content: "";
         display: block;
@@ -26,6 +39,11 @@
         height: 4px;
         margin: 0 auto;
         background-color: var(--color-primary);
+
+        @include for-small-phone-only {
+            width: 18rem;
+            height: 3px;
+        }
     }
 }
 
@@ -36,12 +54,24 @@
     overflow: hidden;
     border-radius: 5px;
 
+    @media (max-width: 1300px) {width: 65%;}
+
+    @include for-tablet-portrait-up {width: 80%;}
+
+    @include for-phone-up {flex-direction: column-reverse;}
+
     &__left {
         width: 50%;
         height: 450px;
+        padding: 3rem;
         background-color: rgba(221, 59, 0, 0.7); 
         transition: all .8s;
-        position: relative;  
+        position: relative;
+
+        @include for-phone-up  {
+            width: 100%;
+            margin-bottom: 3rem;
+        }
     }
 
     &__right {
@@ -57,6 +87,19 @@
         letter-spacing: 2px;
         position: relative;
         color: black;
+
+        @media (max-width: 1000px) {font-size: 1.8rem;}
+
+        @media (max-width: 750px) {font-size: 1.6rem;}
+
+        @media (max-width: 700px) { font-size: 1.5rem;}
+
+        @media (max-width: 650px) {font-size: 1.4rem;}
+
+        @include for-phone-up  {
+            width: 100%;
+            margin: 3rem 0;
+        }
     }
 
     &__icon {
@@ -78,21 +121,19 @@
         }
     }
 
-    & * { transition: all .4s;}
-
-    
+    & * { transition: all .7s;}    
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
     transition: all .5s;
 
     &__message {
-        width: 80%;
+        width: 100%;
         height: 250px;
         resize: none;
         padding: 1rem;
@@ -124,9 +165,13 @@
         transform: translateY(-3px) scale(1.05);
         color: var(--color-primary);
     }
+
+    &__email {width: 80%;}
+
+    &__upload {
+        @include for-tablet-portrait-up  {font-size: 1rem;}
+    }    
 }
-
-
 
 // ANIMATION CLASSES
 .hover { width: 90%;}

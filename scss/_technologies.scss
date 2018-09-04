@@ -12,6 +12,19 @@
         text-align: center;
         margin: 5rem 0 8rem 0;
 
+        @include for-tablet-portrait-up {
+            font-size: 3rem;
+        }
+
+        @include for-phone-up {
+            font-size: 2.5rem;
+            margin: 5rem 0 4rem 0;
+        }
+
+        @include for-small-phone-only {
+            font-size: 1.7rem
+        }
+
         &:after {
             content: "";
             display: block;
@@ -19,6 +32,29 @@
             height: 4px;
             margin: 0 auto;
             background-color: var(--color-primary);
+
+            @include for-phone-up {
+                width: 18rem;
+                height: 3px;
+            }
+        }
+    }
+
+    &__box {
+        width: 80%;
+        padding: 4rem;
+        box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.2);
+        background-color: #eee;
+        border-radius: 1rem;
+        transform: skew(-6deg);
+        margin: 0 auto;
+
+        @include for-tablet-portrait-up {
+            width: 90%;
+        }
+
+        @include for-phone-up  {
+            transform: skew(0);
         }
     }
 
@@ -30,6 +66,26 @@
         padding: 5rem 0;
         display: flex;
         justify-content: space-evenly;
+        
+        &:nth-child(even) {
+            @media (max-width: 700px) {
+                transform: skew(6deg) translateX(5%);
+            }
+
+            @include for-phone-up  {
+                transform: skew(0);
+            }
+        }
+        
+        @media (max-width: 700px) {
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;          
+        }
+
+        @include for-phone-up  {
+            transform: skew(0);
+        }
 
         &__item {
             display: flex;
@@ -39,19 +95,23 @@
             z-index: 100;
             position: relative;
 
+            @media (max-width: 700px) {
+                width: 50%;
+                margin-bottom: 8rem;
+            }
+
+
             .icon-wrapper {
                 z-index: 100;
 
                 &:hover ~ .text-wrapper {
                     top: -15%;
-                    opacity: 1;
-                    
+                    opacity: 1;                    
                 }
             
                 &:hover ~ .stars-wrapper {
                     bottom: -15%;
-                    opacity: 1;
-                    
+                    opacity: 1;                    
                 }
             }
 
@@ -66,6 +126,15 @@
                 opacity: 0;
                 z-index: 0;
                 transition: all .6s;
+
+                @include for-tablet-landscape-up {
+                    top: -15%;
+                    opacity: 1; 
+                }
+
+                @include for-tablet-portrait-up {
+                    font-size: 1.5rem;
+                }
             }
 
             .stars-wrapper {
@@ -77,10 +146,21 @@
                 opacity: 0;
                 z-index: 0;
                 transition: all .6s;
+
+                @include for-tablet-landscape-up {
+                    bottom: -15%;
+                    opacity: 1;
+                }
+
                 svg {
                     width: 2rem;
                     height: 2rem;
                     fill: var(--color-primary);
+
+                    @include for-tablet-portrait-up {
+                        width: 1.3rem;
+                        height: 1.3rem;
+                    }
                 }
             }
             
@@ -88,10 +168,21 @@
     }
 
     &__item {
-        width: 100px;
-        height: 100px;
+        width: 10rem;
+        height: 10rem;
         fill: var(--color-text-dark);
         transition: all .6s;
+
+        @include for-tablet-portrait-up {
+            width: 7.5rem;
+            height: 7.5rem;
+        }
+
+        @include for-small-phone-only  {
+            width: 5.5rem;
+            height: 5.5rem;
+            margin-top: 1rem;
+        }
 
         &--html:hover {fill: #E44E29;}
         &--css3:hover {fill: #379AD6;}
@@ -106,17 +197,23 @@
         &--mysql:hover {fill: #0077A2;}
         &--wordpress:hover {fill: #21759B;}
         &--bootstrap:hover {fill: #563D7C;}
+
+        // show color for smaller screens 
+        &--html {@include for-tablet-landscape-up {fill: #E44E29;}} 
+        &--css3 {@include for-tablet-landscape-up {fill: #379AD6;}} 
+        &--javascript {@include for-tablet-landscape-up {fill: #F8DC3D;}} 
+        &--sass {@include for-tablet-landscape-up {fill: #CF6B9E;}} 
+        &--rwd {@include for-tablet-landscape-up {fill: #5a5a5a;}} 
+        &--git {@include for-tablet-landscape-up {fill: #F05033;}} 
+        &--github {@include for-tablet-landscape-up {fill: #000;}} 
+        &--npm {@include for-tablet-landscape-up {fill: #CC3534;}} 
+        &--react {@include for-tablet-landscape-up {fill: #61DBFB;}} 
+        &--php {@include for-tablet-landscape-up {fill: #8D90C5;}} 
+        &--mysql {@include for-tablet-landscape-up {fill: #0077A2;}} 
+        &--wordpress {@include for-tablet-landscape-up {fill: #21759B;}} 
+        &--bootstrap {@include for-tablet-landscape-up {fill: #563D7C;}} 
+
     }
    
 }
 
-
-.technologies__box {
-    width: 80%;
-    padding: 4rem;
-    box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.2);
-    background-color: #eee;
-    border-radius: 1rem;
-    transform: skew(-6deg);
-    margin: 0 auto;
-}

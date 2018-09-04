@@ -1,0 +1,29 @@
+// from 0px to 450px
+@mixin for-small-phone-only {
+    @media(max-width: 450px) {@content;}
+}
+
+// from 0px to 600px
+@mixin for-phone-up {
+    @media(max-width: 599px) {@content;}
+}
+
+// from 600px to 900px
+@mixin for-tablet-portrait-up {
+    @media (max-width: 899px) { @content; }
+}
+
+// from 900px to 1200px
+@mixin for-tablet-landscape-up {
+    @media (max-width: 1199px) { @content; }
+}
+
+// from 1200px to 1800px
+@mixin for-desktop-up {
+    @media (max-width: 1799px) { @content; }
+}
+
+// from 1801px and up
+@mixin for-big-desktop-up {
+    @media (min-width: 1800px) { @content; }
+}

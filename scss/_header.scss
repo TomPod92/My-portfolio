@@ -1,3 +1,7 @@
+// @include for-big-desktop-up {
+//     width: 0vw;
+// }
+    
 .header {
     background-image: linear-gradient(to right top, rgba(235, 233, 233, 0.212), rgba(0, 0, 0, 0.9)), url(../images/header5.jpg);
     background-size: cover;
@@ -6,6 +10,10 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+
+    @include for-phone-up {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
 }
 
 .logo {
@@ -14,7 +22,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    perspective: 10000px;
+    //perspective: 10000px;
     backface-visibility: hidden;
     
     &::after {
@@ -26,6 +34,11 @@
         background-color: var(--color-primary);
         opacity: 0;
         animation: moveUp 1s ease-in-out .5s forwards;
+
+        @include for-small-phone-only {
+            width: 25rem;
+            height: 2.5px;
+        }
     }
 
     &__text--primary {
@@ -35,7 +48,26 @@
         text-shadow: 2px 2px 2rem black;
         opacity: 0;  
         transform-origin: bottom;
-        animation: 1s ease-in-out 2s showFlip forwards;    
+        animation: 1s ease-in-out 2s showFlip forwards;
+        
+        @include for-tablet-landscape-up {
+            font-size: 4rem;
+            letter-spacing: 2px;
+        }
+
+        @include for-tablet-portrait-up {
+            font-size: 3.5rem
+        }
+
+        @include for-phone-up {
+            font-size: 4rem
+        }
+
+        @include for-small-phone-only {
+            font-size: 3rem;
+        }
+
+        
     } 
 
     &__text--secondary {
@@ -61,6 +93,11 @@
     transition: all .5s;
     animation: 1.5s ease-in-out 1.5s moveDown forwards;
 
+    @include for-tablet-landscape-up {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+
     &__icon-arrow {
         width: 2rem;
         height: 2rem;
@@ -71,6 +108,11 @@
         transform: translate(-50%, -50%);
         transition: all .5s;
         animation: 1.5s ease-in-out 1s upAndDown alternate infinite;
+
+        @include for-tablet-landscape-up {
+            width: 3rem;
+            height: 3rem;
+        }
     }
 
     &__text {

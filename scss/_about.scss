@@ -14,6 +14,20 @@
     background-color: #eee;
     border-radius: 1rem;
     transform: skew(-6deg);
+
+    @include for-tablet-landscape-up {
+        padding: 5rem;
+    }
+
+    @include for-phone-up {
+        transform: skew(0);
+        width: 90%;
+        padding: 4rem;
+    }
+
+    @include for-small-phone-only {
+        padding: 3rem;        
+    }
     
 
     &__header {
@@ -23,6 +37,14 @@
         color: var(--color-primary);
         letter-spacing: 4px;
         margin-bottom: 3rem;
+
+        @include for-phone-up {
+            font-size: 3rem;
+        }
+
+        @include for-small-phone-only {
+            font-size: 2rem;       
+        }
     }
 
     &__circle-image {
@@ -36,6 +58,26 @@
         perspective: 150rem;
         z-index: 1000;
 
+        @include for-tablet-landscape-up {
+            width: 25rem;
+            height: 25rem;
+            margin-right: 2.5rem;
+        }
+
+        @include for-tablet-portrait-up {
+            width: 18rem;
+            height: 18rem;
+            margin-right: 2.5rem;
+        }
+
+        @include for-small-phone-only {
+            padding: 3rem;
+            width: 16.5rem;
+            height: 16.5rem;
+            float: none;
+            margin: 0 auto 2rem auto;
+        }
+
         &--up,
         &--down {
             width: 100%;
@@ -47,13 +89,33 @@
             backface-visibility: hidden;
             transform: skew(6deg); 
             transition: all 0.7s;
+
+            
+            @include for-phone-up {
+                transform: skew(0);
+            }
         }
 
-        &--down {transform:skew(6deg) rotateY(-180deg);}
+        &--down {
+            transform:skew(6deg) rotateY(-180deg);
+            @include for-phone-up {
+                transform: skew(0) rotateY(-180deg);
+            }
+        }
 
-        &:hover &--up {transform: skew(6deg) rotateY(-180deg);}
+        &:hover &--up {
+            transform: skew(6deg) rotateY(-180deg);
+            @include for-phone-up {
+                transform: skew(0) rotateY(-180deg);
+            }
+        }
         
-        &:hover &--down {transform: skew(6deg) rotateY(0);}
+        &:hover &--down {
+            transform: skew(6deg) rotateY(0);
+            @include for-phone-up {
+                transform: skew(0) rotateY(0);
+            }        
+        }
     }
 
     &__text {
@@ -64,6 +126,28 @@
         line-height: 2.5;
         margin-bottom: 4rem;
         transform: skew(6deg);
+
+        @include for-tablet-landscape-up {
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            margin-bottom: 2.5rem;            
+        }
+
+        @include for-tablet-portrait-up {
+            font-size: 1.3rem;
+            letter-spacing: 0;
+            margin-bottom: 2rem;            
+        }
+
+        @include for-phone-up {
+            transform: skew(0);
+            line-height: 2;
+        }
+
+        @include for-small-phone-only {
+            line-height: 1.5;
+            font-size: 1.3rem;
+        }
               
         &::after {
             clear: both;
@@ -86,6 +170,15 @@
         transition: all 1s;
         text-decoration: none;
         margin-left: auto;
+
+        @include for-tablet-portrait-up {
+            padding: .3rem 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        @include for-phone-up {
+            transform: skew(0);
+        }
     }
 
     &__button:hover {
@@ -95,7 +188,11 @@
 
     &_button:active {
         box-shadow: none;
-        transform: skew(6deg) scale(.9); 
+        transform: skew(6deg) scale(.9);
+        
+        @include for-phone-up {
+            transform: skew(0) scale(.9);
+        }
     }
 }
 

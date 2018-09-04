@@ -10,6 +10,13 @@
     justify-content: center;
     align-items: center;
     position: relative;
+
+    @include for-tablet-portrait-up {
+        justify-content: center;
+        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+    }
+
+    @include for-phone-up {clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);}
 }
 
 .projects__header {
@@ -18,6 +25,14 @@
     color: var(--color-text);
     letter-spacing: 4px;
     text-shadow: 2px 2px 2rem black;
+
+    @include for-tablet-landscape-up {font-size: 3rem;}
+
+    @include for-tablet-portrait-up {margin-top: 15rem;}
+
+    @include for-phone-up {margin-top: 5rem;}
+
+    @include for-small-phone-only {font-size: 2rem;} 
 
     &:after {
         content: "";
@@ -30,26 +45,37 @@
 }
 
 .row {
-    width: 80%;
-    height: 400px;
+    width: 70%;
+    min-height: 400px;
     margin: 3rem 0; 
     display: flex;
     justify-content: space-between;
+
+    @include for-tablet-landscape-up {width: 90%;}
+
+    @include for-tablet-portrait-up  {
+        flex-wrap: wrap; 
+        justify-content: center;
+        align-items: center;       
+    }
 }
 
 .project {
-    height: 100%;
+    min-height: 100%;
     width: 30%;
     position: relative;
     perspective: 150rem;
 
-    &:hover &__card--front {
-        transform: rotateY(180deg);
+    @include for-tablet-portrait-up  {
+        width: 65%;
+        margin: 1.5rem;         
     }
+    
+    @include for-small-phone-only {width: 90%;}  
 
-    &:hover &__card--back {
-        transform: rotateY(0);
-    }
+    &:hover &__card--front {transform: rotateY(180deg);}
+
+    &:hover &__card--back {transform: rotateY(0);}
 
     &__card {
         height: 100%;
@@ -79,12 +105,28 @@
             justify-content: space-around;
             align-items: center;
             transform: rotateY(-180deg);
+
+            p {
+                font-size: 1.2rem;
+
+                @media (max-width: 1350px) {font-size: 1rem;}
+
+                @include for-tablet-landscape-up {font-size: 1.1rem;}
+
+                @media (max-width: 1000px) {font-size: .9rem;}
+
+                @include for-tablet-portrait-up {font-size: 1.35rem;}
+
+                @include for-phone-up {font-size: 1rem;}
+                
+                @include for-small-phone-only {font-size: 1rem;}  
+            }
         }
 
         &--photo {
             width: 100%;
             height: 45%;;
-            border-radius: 3px;
+            border-radius: 3px;            
         }
 
         &--title {
@@ -92,6 +134,8 @@
             font-size: 2rem;
             letter-spacing: 3px;
             text-align: center;
+
+            @include for-tablet-landscape-up {font-size: 1.5rem;}
 
             &::after {
                 content: "";
@@ -112,6 +156,8 @@
             justify-content: space-between;
             align-items: center;
             font-size: 1.5rem;
+
+            @include for-tablet-landscape-up {font-size: 1.3rem;}            
         }
 
         &--button {
@@ -125,18 +171,29 @@
             transition: all 1s;
             text-decoration: none;
 
+            @include for-tablet-landscape-up {
+                padding: .3rem .7rem;
+                font-size: 1rem;            
+            }
+
+            @include for-tablet-portrait-up {font-size: 1.6rem;}
+
+            @include for-small-phone-only {font-size: 1.2rem;} 
+
             &:hover {
                 background-color: rgba(238, 238, 238, 0.85);
                 border: 2px solid var(--color-background-white);
                 color: black;
-            }
-           
+            }           
         }
     }
 
     &__button {
-        z-index: 100;
+        z-index: 100; 
         
+        @include for-tablet-portrait-up  {margin-bottom: 15rem; }
+
+        @include for-phone-up {margin-bottom: 5rem;}
 
         &--icon {
             height: 5.5rem;
@@ -158,14 +215,11 @@
             transition: all .5s;
         }
 
-        &:hover &--icon {
-            fill: var(--color-primary);
-        }
+        &:hover &--icon {fill: var(--color-primary);}
 
         &:hover + &--text {
             bottom: 6%;
-            opacity: 1;
-            
+            opacity: 1;            
         }
     }
 }
