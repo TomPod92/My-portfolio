@@ -35,7 +35,7 @@ function send_mail($config) {
     $html = new \Html2Text\Html2Text($mail->AltBody);
     $mail->AltBody = $html->getText(); // tresc tekstowa wiadmosci (zeby poczta nie zakfalifikowala wiadomosci jako spam)
 
-    if(!mail->send()) {
+    if(!$mail->send()) {
         echo 'Nie udalo się wysłać wiadomości.';
     } else {
         echo 'Wiadomość została wysłana.';
