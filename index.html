@@ -319,11 +319,12 @@
         <div class="bigBox">
 
             <div class="bigBox__left">
-                <form action="#" class="form">
-                    <input type="email" placeholder="Email" class="form__email" required>
-                    <textarea name="form" class="form__message"></textarea>                    
+                <form action="/main.php" method="POST" class="form">
+                    <input type="email" name="from_email" placeholder="Email" class="form__email" required>
+                    <textarea name="mail_message" class="form__message"></textarea>                    
                     <input type="file" class="form__upload">
-                    <input type="submit" value="Wyślj" class="form__sumbit">
+                    <button type="submit" class="form__sumbit">Wyślij</button>
+                    <!-- <input type="submit" value="Wyślj" class="form__sumbit"> -->
                 </form>
 
                 <svg class="bigBox__icon--show">
