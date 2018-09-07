@@ -1,11 +1,15 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . 'vendor/autoload.php';
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
+
 
 function send_mail($config) {
     // Tworzymy nowy obiekt klasy PHPMailer
-    $mail = new PHPMailer;
-
+$mail = new PHPMailer(true);
     // Polskie znaki
     $mail->CharSet = 'UTF-8';
 
@@ -13,7 +17,7 @@ function send_mail($config) {
     $mail->isSMTP();                                      
     $mail->Host = 'smtp.gmail.com';  
     $mail->SMTPAuth = true;                              
-    $mail->Username = 'Tomasz Podsiadlik';      // nazwa uzytkownika konta           
+    $mail->Username = 'podsiadlik.tomek@gmail.com';      // nazwa uzytkownika konta           
     $mail->Password = 'SilneHaslo0';            // haslo do konta               
     $mail->SMTPSecure = 'tls';                            
     $mail->Port = 587;                                    
@@ -25,13 +29,16 @@ function send_mail($config) {
 
 
     // Zalaczniki
-    //$mail->addAttachment('/var/tmp/file.tar.gz');         
-    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    
+    if (isset($_FILES['uploaded_file']) &&
+        $_FILES['uploaded_file']['error'] == UPLOAD_ERR_OK) {
+        $mail->AddAttachment($_FILES['uploaded_file']['tmp_name'],
+                             $_FILES['uploaded_file']['name']);
+    }
 
     // Tresc maila
     $mail->isHTML(true);                                  
     $mail->Subject = 'Wiadomość z formularza na portfolio';
-    $mail->Body = $config->mail_message;  // tresc HTML wiadomosci
+    $mail->Body = 'Wiadomość od ' . $config->from_email . '<br>Treść wiadomosci: <br>' . $config->mail_message;  // tresc HTML wiadomosci
     $html = new \Html2Text\Html2Text($mail->AltBody);
     $mail->AltBody = $html->getText(); // tresc tekstowa wiadmosci (zeby poczta nie zakfalifikowala wiadomosci jako spam)
 
@@ -43,7 +50,7 @@ function send_mail($config) {
 }
 
 
-// jezeli ostanie wyslany formularz
+// jezeli zostanie wyslany formularz
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
     
     $config = (object) [
