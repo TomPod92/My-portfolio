@@ -24,5 +24,6 @@ body {
     box-sizing: border-box;
     background-color: var(--color-background-white);
     color: #eee;
-    overflow-x: hidden;    
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
