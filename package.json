@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/TomPod92/My-portfolio#readme",
   "devDependencies": {
-    "node-sass": "^4.9.3"
+    "node-sass": "^4.13.1"
   }
 }
